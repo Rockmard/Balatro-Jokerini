@@ -11,7 +11,7 @@ For now the jokers present in the mod are :
 ### - Purple Ticket
 Scoring with a purple seal card gives a tarot card.<br>
 Also has a small chance to be a negative.<br>
-[demo_purple_ticket.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/purple_ticket.gif?raw=true)
+[![demo_purple_ticket.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/purple_ticket.gif?raw=true)]()
 
 ### - Cigarettes
 Gives a X5 Mult but lose a hand size each 3 hands played.
