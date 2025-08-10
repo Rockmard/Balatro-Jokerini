@@ -24,7 +24,7 @@ SMODS.Joker{
 		if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
 			if context.other_card.seal == 'Purple' then           -- if the card has a purple seal
 
-				randonum = math.random(1, 200)
+				randonum = math.random(1, 100)
 				if randonum == 1 then                             -- if it's the lucky time (negative tarot)
 					G.E_MANAGER:add_event(Event({
 						trigger = 'before',
