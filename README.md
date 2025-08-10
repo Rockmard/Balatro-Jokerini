@@ -23,4 +23,5 @@ Retrigger all played cards in first hand of the round.<br>
 
 ## Installation
 This mod needs the Lovely Injector and Steammodded, here's a great [video](https://www.youtube.com/watch?v=uDfxnwHO134) explaining how to do that.<br>
-you can find everything on this [repository](https://github.com/Steamodded/smods) if you think you're missing some informations or anything.
+You can find everything on this [repository](https://github.com/Steamodded/smods) if you think you're missing some informations or anything.<br>
+You only requiere the "Jokerini" folder from my repository.
