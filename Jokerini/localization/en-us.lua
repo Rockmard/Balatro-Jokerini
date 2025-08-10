@@ -16,6 +16,12 @@ return {
                     "Lose a{C:blue} hand size {}each 3 hands played",
                 },
             },
+            j_sj_dawn = {
+                name = "Dawn",
+                text = {
+                    "Retrigger all played cards in {C:attention}first hand{} of the round",
+                },
+            },
         }
     },
     misc = {

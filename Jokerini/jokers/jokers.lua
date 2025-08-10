@@ -14,6 +14,13 @@ SMODS.Atlas({
 	py = 95
 })
 
+SMODS.Atlas({
+	key = "dawn",
+	path = "j_dawn.png",
+	px = 71,
+	py = 95
+})
+
 -- JOKERS
 
 SMODS.Joker{
@@ -103,6 +110,31 @@ SMODS.Joker{
 			return {
 				message = localize{type='variable',key='a_xmult',vars={card.ability.extra.Xmult}},
 				Xmult_mod = card.ability.extra.Xmult,
+			}
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "dawn",                                  
+	config = {extra = 1},    						 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 2,                                          
+	cost = 4,                                            
+	blueprint_compat=true,                               
+	eternal_compat=true,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="Retrigger first hand",			 		 
+	soul_pos=nil,                                        
+	atlas = 'dawn',                             
+
+	calculate = function(self, card, context)
+		if context.repetition and context.cardarea == G.play and G.GAME.current_round.hands_played == 0 then
+			return {
+				message = localize('k_again_ex'),
+				repetitions = card.ability.extra,
+				card = card
 			}
 		end
 	end,
