@@ -19,7 +19,8 @@ return {
             j_sj_dawn = {
                 name = "Dawn",
                 text = {
-                    "Retrigger all played cards in {C:attention}first hand{} of the round",
+                    "Retrigger all played cards",
+                    "in {C:attention}first hand{} of the round",
                 },
             },
         }
