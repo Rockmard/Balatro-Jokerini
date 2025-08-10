@@ -5,8 +5,15 @@ return {
                 name = "Purple Ticket",
                 text = {
                     "Scoring with a {C:purple}purple seal{} card",
-                    "gives a {C:tarot}tarot{} card.",
+                    "gives a {C:tarot}tarot{} card",
                     "Has a small chance to be a {C:dark_edition}negative{}.",
+                },
+            },
+            j_sj_cigarettes = {
+                name = "Cigarettes",
+                text = {
+                    "Gives a {X:mult,C:white} X5 {} Mult",
+                    "Lose a{C:blue} hand size {}each 3 hands played",
                 },
             },
         }

@@ -1,3 +1,5 @@
+-- ATLAS
+
 SMODS.Atlas({
 	key = "purple_ticket",
 	path = "j_purple_ticket.png",
@@ -5,6 +7,14 @@ SMODS.Atlas({
 	py = 95
 })
 
+SMODS.Atlas({
+	key = "cigarettes",
+	path = "j_cigarettes.png",
+	px = 71,
+	py = 95
+})
+
+-- JOKERS
 
 SMODS.Joker{
 	key = "purple_ticket",                               --name used by the joker.    
@@ -63,6 +73,37 @@ SMODS.Joker{
 					}
 				end
 			end
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "cigarettes",                                  
+	config = {extra = {Xmult = 5, hands = 3}},    						 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 1,                                          
+	cost = 1,                                            
+	blueprint_compat=true,                               
+	eternal_compat=true,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="X Mult for hand size",			 		 
+	soul_pos=nil,                                        
+	atlas = 'cigarettes',                             
+
+	calculate = function(self, card, context)
+		if context.joker_main then
+			card.ability.extra.hands = card.ability.extra.hands - 1
+
+			if card.ability.extra.hands == 0 then
+				G.hand:change_size(-1)
+				card.ability.extra.hands = 3
+			end
+
+			return {
+				message = localize{type='variable',key='a_xmult',vars={card.ability.extra.Xmult}},
+				Xmult_mod = card.ability.extra.Xmult,
+			}
 		end
 	end,
 }
