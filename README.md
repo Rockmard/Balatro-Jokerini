@@ -18,7 +18,8 @@ Gives a X5 Mult but lose a hand size each 3 hands played.<br>
 [![demo_cigarettes.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/cigarettes.gif?raw=true)]()
 
 ### - Dawn
-Retrigger all played cards in first hand of the round.
+Retrigger all played cards in first hand of the round.<br>
+[![demo_dawn.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/dawn.gif)]()
 
 ## Installation
 This mod needs the Lovely Injector and Steammodded, here's a great [video](https://www.youtube.com/watch?v=uDfxnwHO134) explaining how to do that.<br>
