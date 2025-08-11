@@ -23,6 +23,13 @@ return {
                     "in {C:attention}first hand{} of the round",
                 },
             },
+            j_sj_iron_factory = {
+                name = "Iron Factory",
+                text = {
+                    "When an iron card scores,",
+                    "add {X:mult,C:white} +0.1{} to the XMult",
+                },
+            },
         }
     },
     misc = {

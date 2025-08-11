@@ -21,6 +21,13 @@ SMODS.Atlas({
 	py = 95
 })
 
+SMODS.Atlas({
+	key = "iron_factory",
+	path = "j_placeholder.png",
+	px = 71,
+	py = 95
+})
+
 -- JOKERS
 
 SMODS.Joker{
@@ -100,11 +107,13 @@ SMODS.Joker{
 
 	calculate = function(self, card, context)
 		if context.joker_main then
-			card.ability.extra.hands = card.ability.extra.hands - 1
+			if not context.blueprint then
+				card.ability.extra.hands = card.ability.extra.hands - 1
 
-			if card.ability.extra.hands == 0 then
-				G.hand:change_size(-1)
-				card.ability.extra.hands = 3
+				if card.ability.extra.hands == 0 then
+					G.hand:change_size(-1)
+					card.ability.extra.hands = 3
+				end
 			end
 
 			return {
@@ -134,8 +143,37 @@ SMODS.Joker{
 			return {
 				message = localize('k_again_ex'),
 				repetitions = card.ability.extra,
-				card = card
+				card = card,
 			}
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "iron_factory",                                  
+	config = nil,  						 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 1,                                          
+	cost = 1,                                            
+	blueprint_compat=true,                               
+	eternal_compat=true,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="Mult iron card",			 		 
+	soul_pos=nil,                                        
+	atlas = 'iron_factory',                             
+
+	calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play then
+			if context.other_card.ability.effect == "Steel Card" then
+				context.other_card.ability.h_x_mult = context.other_card.ability.h_x_mult + 0.1
+
+				return {
+					card = card,
+					message = localize('k_upgrade_ex'),
+					colour = G.C.MULT,
+				}
+			end
 		end
 	end,
 }
