@@ -203,7 +203,7 @@ SMODS.Joker{
 		if context.cardarea == G.jokers and context.before and not context.blueprint then
 			local fourty_twos = {}
 			for k, v in ipairs(context.scoring_hand) do
-				if v:get_id() == 4 or v:get_id() == 2 then 
+				if v:get_id() == 4 or v:get_id() == 2 and not v.debuff then 
 					fourty_twos[#fourty_twos+1] = v
 					v:set_ability(G.P_CENTERS.m_steel, nil, true)
 					G.E_MANAGER:add_event(Event({
