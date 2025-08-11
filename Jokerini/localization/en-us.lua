@@ -13,7 +13,8 @@ return {
                 name = "Cigarettes",
                 text = {
                     "Gives a {X:mult,C:white} X5 {} Mult",
-                    "Lose a{C:blue} hand size {}each 3 hands played",
+                    "Lose a {C:blue}hand size{}",
+                    "each {C:attention}3 hands{} played",
                 },
             },
             j_sj_dawn = {
@@ -28,6 +29,14 @@ return {
                 text = {
                     "When an iron card scores,",
                     "add {X:mult,C:white} +0.1 {} to the XMult",
+                },
+            },
+            j_sj_iron_man = {
+                name = "Iron Man",
+                text = {
+                    "All played {C:attention}2{} or {C:attention}4{} cards",
+                    "become {C:attention}steel{} cards",
+                    "when scored",
                 },
             },
         }

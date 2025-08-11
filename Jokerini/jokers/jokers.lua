@@ -28,6 +28,13 @@ SMODS.Atlas({
 	py = 95
 })
 
+SMODS.Atlas({
+	key = "iron_man",
+	path = "j_iron_man.png",
+	px = 71,
+	py = 95
+})
+
 -- JOKERS
 
 SMODS.Joker{
@@ -153,8 +160,8 @@ SMODS.Joker{
 	key = "iron_factory",                                  
 	config = nil,  						 	 
 	pos = { x = 0, y = 0 },                             
-	rarity = 1,                                          
-	cost = 1,                                            
+	rarity = 3,                                          
+	cost = 10,                                            
 	blueprint_compat=true,                               
 	eternal_compat=true,                                 
 	unlocked = true,                                     
@@ -172,6 +179,46 @@ SMODS.Joker{
 					card = card,
 					message = localize('k_upgrade_ex'),
 					colour = G.C.MULT,
+				}
+			end
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "iron_man",                                  
+	config = nil,  						 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 3,                                          
+	cost = 10,                                            
+	blueprint_compat=false,                               
+	eternal_compat=true,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="Make iron card",			 		 
+	soul_pos=nil,                                        
+	atlas = 'iron_man',                             
+
+	calculate = function(self, card, context)
+		if context.cardarea == G.jokers and context.before and not context.blueprint then
+			local fourty_twos = {}
+			for k, v in ipairs(context.scoring_hand) do
+				if v:get_id() == 4 or v:get_id() == 2 then 
+					fourty_twos[#fourty_twos+1] = v
+					v:set_ability(G.P_CENTERS.m_steel, nil, true)
+					G.E_MANAGER:add_event(Event({
+						func = function()	
+							v:juice_up()
+							return true
+						end
+					}))
+				end
+			end
+			if #fourty_twos > 0 then
+				return {
+					message = "Steel",
+					colour = G.C.GREY,
+					card = card
 				}
 			end
 		end
