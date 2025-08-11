@@ -24,6 +24,10 @@ Retrigger all played cards in first hand of the round.<br>
 ### - Iron Factory (no texture yet)
 When an iron card scores, add +0.1 to the XMult.
 
+### - Iron Man
+All played 2 or 4 cards become steel cards when scored.<br>
+[![demo_iron_man.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/iron_man.gif)]()
+
 ## Installation
 This mod needs the Lovely Injector and Steammodded, here's a great [video](https://www.youtube.com/watch?v=uDfxnwHO134) explaining how to do that.<br>
 You can find everything on this [repository](https://github.com/Steamodded/smods) if you think you're missing some informations or anything.<br>
