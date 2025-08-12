@@ -35,6 +35,13 @@ SMODS.Atlas({
 	py = 95
 })
 
+SMODS.Atlas({
+	key = "trade",
+	path = "j_trade.png",
+	px = 71,
+	py = 95
+})
+
 -- JOKERS
 
 SMODS.Joker{
@@ -221,6 +228,73 @@ SMODS.Joker{
 					card = card
 				}
 			end
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "trade",                                  
+	config = nil,  						 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 2,                                          
+	cost = 5,                                            
+	blueprint_compat=false,                               
+	eternal_compat=true,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="Trade cards",			 		 
+	soul_pos=nil,                                        
+	atlas = 'trade',                             
+
+	calculate = function(self, card, context)
+		if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+			if #G.hand.cards > 1 then
+
+				local card_to_kill = nil
+				local place
+				for i=1, #G.hand.cards do
+                    card_to_kill = G.hand.cards[i]
+					place = i
+				end
+
+				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					delay = 0.2,
+					func = function() 
+							if card_to_kill.ability.name == 'Glass Card' then 
+								card_to_kill:shatter()
+							else
+								card_to_kill:start_dissolve(nil, i == G.hand.cards[place])
+							end
+						return true end }))
+
+				delay(0.5)
+
+				local card_to_duplicate = copy_card(G.hand.cards[1], nil, nil, nil)
+				card_to_duplicate:add_to_deck()
+				G.deck.config.card_limit = G.deck.config.card_limit + 1
+				table.insert(G.playing_cards, card_to_duplicate)
+				G.hand:emplace(card_to_duplicate)
+				card_to_duplicate.states.visible = nil
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						card_to_duplicate:start_materialize()
+						return true
+					end
+				}))
+			
+				return {
+					message = "Trade",
+					colour = G.C.IMPORTANT,
+					card = card,
+				}
+			end
+			return {
+				message = "Not enough card",
+				colour = G.C.IMPORTANT,
+				card = card,
+			}
 		end
 	end,
 }

@@ -39,6 +39,14 @@ return {
                     "when scored",
                 },
             },
+            j_sj_trade = {
+                name = "Trade",
+                text = {
+                    "At the end of the round",
+                    "your {C:attention}leftmost{} card is {C:green}copied{}",
+                    "and your {C:attention}rightmost{} card is {C:red}destroyed{}"
+                },
+            },
         }
     },
     misc = {
