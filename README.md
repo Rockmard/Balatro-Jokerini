@@ -15,19 +15,19 @@ For now the jokers present in the mod are :
 ### - Purple Ticket
 Scoring with a purple seal card gives a tarot card.<br>
 Also has a small chance to be a negative.<br>
-[![demo_purple_ticket.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/purple_ticket.gif?raw=true)]()
+[![demo_purple_ticket.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/srcs/demo/purple_ticket.gif?raw=true)]()
 
 ### - Cigarettes
 Gives a X5 Mult but lose a hand size each 3 hands played.<br>
-[![demo_cigarettes.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/cigarettes.gif?raw=true)]()
+[![demo_cigarettes.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/srcs/demo/cigarettes.gif?raw=true)]()
 
 ### - Dawn
 Retrigger all played cards in first hand of the round.<br>
-[![demo_dawn.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/dawn.gif)]()
+[![demo_dawn.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/srcs/demo/dawn.gif)]()
 
 ### - Iron Factory (no texture yet)
 When an iron card scores, add +0.1 to the XMult.
 
 ### - Iron Man
 All played 2 or 4 cards become steel cards when scored.<br>
-[![demo_iron_man.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/src/demo/iron_man.gif)]()
+[![demo_iron_man.gif](https://github.com/Rockmard/Balatro-Jokerini/blob/main/srcs/demo/iron_man.gif)]()
