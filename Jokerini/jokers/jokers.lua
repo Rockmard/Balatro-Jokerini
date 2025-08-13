@@ -23,7 +23,7 @@ SMODS.Atlas({
 
 SMODS.Atlas({
 	key = "iron_factory",
-	path = "j_placeholder.png",
+	path = "j_iron_factory.png",
 	px = 71,
 	py = 95
 })
@@ -38,6 +38,13 @@ SMODS.Atlas({
 SMODS.Atlas({
 	key = "trade",
 	path = "j_trade.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas({
+	key = "sacrificial_totem",
+	path = "j_sacrificial_totem.png",
 	px = 71,
 	py = 95
 })
@@ -62,7 +69,7 @@ SMODS.Joker{
 		if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
 			if context.other_card.seal == 'Purple' then           -- if the card has a purple seal
 
-				randonum = math.random(1, 100)
+				local randonum = math.random(1, 100)
 				if randonum == 1 then                             -- if it's the lucky time (negative tarot)
 					G.E_MANAGER:add_event(Event({
 						trigger = 'before',
@@ -295,6 +302,53 @@ SMODS.Joker{
 				colour = G.C.IMPORTANT,
 				card = card,
 			}
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "sacrificial_totem",                                  
+	config = nil,					 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 3,                                          
+	cost = 10,                                            
+	blueprint_compat=false,                               
+	eternal_compat=true,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="Sacrifice cards",			 		 
+	soul_pos=nil,                                        
+	atlas = 'sacrificial_totem',                             
+
+	calculate = function(self, card, context)
+		if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+			if #G.hand.cards > 0 then
+
+				local randonum = math.random(1, #G.hand.cards)
+				local card_to_kill = G.hand.cards[randonum]
+				local value = card_to_kill:get_id()
+
+				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					delay = 0.2,
+					func = function() 
+							if card_to_kill.ability.name == 'Glass Card' then 
+								card_to_kill:shatter()
+							else
+								card_to_kill:start_dissolve(nil, i == G.hand.cards[randonum])
+							end
+						return true end }))
+
+				delay(0.5)
+				card.ability.extra_value = card.ability.extra_value + value
+				card:set_cost()
+			
+				return {
+					message = "Sacrifice !",
+					colour = G.C.MONEY,
+					card = card,
+				}
+			end
 		end
 	end,
 }

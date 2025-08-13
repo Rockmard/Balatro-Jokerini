@@ -47,6 +47,14 @@ return {
                     "and your {C:attention}rightmost{} card is {C:red}destroyed{}"
                 },
             },
+            j_sj_sacrificial_totem = {
+                name = "Sacrificial Totem",
+                text = {
+                    "At the end of the round",
+                    "add a random card {C:attention}value{}",
+                    "to this joker's {C:attention}sell value{}"
+                },
+            },
         }
     },
     misc = {
