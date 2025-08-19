@@ -342,6 +342,7 @@ SMODS.Joker{
 				delay(0.5)
 				card.ability.extra_value = card.ability.extra_value + value
 				card:set_cost()
+				play_sound('coin7')
 			
 				return {
 					message = "Sacrifice !",
