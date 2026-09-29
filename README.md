@@ -10,3 +10,6 @@ You only requiere the "Jokerini" folder from my repository.
 ## What is "Jokerini" ?
 
 Jokerini is a [Balatro](https://store.steampowered.com/app/2379780/Balatro) mod that adds various jokers to the game that add a little depth to it.<br>
+
+## Latest release
+https://github.com/Rockmard/Balatro-Jokerini/releases
