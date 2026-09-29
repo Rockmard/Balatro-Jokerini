@@ -3,13 +3,13 @@
   "name": "Jokerini",
   "display_name": "Jokerini",
   "author": ["Zaloufi"],
-  "description": "Jokerini mod add various jokers to Balatro that add a little depth to the game.",
+  "description": "Jokerini mod add various jokers to Balatro that add a little depth to the game.  Artworks credits :  - Zaloufi  - Biboubwa",
   "prefix": "sj",
   "prefixcomment":"ABOVE PREFIX IS ADDED TO E.G. LOCALIZATION!",
   "main_file": "Jokerini.lua",
   "priority": 0,
   "badge_colour": "c91400",
   "badge_text_colour": "",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "dependencies": ["Steamodded (>=1.0.0~BETA-0614a)"]
 }

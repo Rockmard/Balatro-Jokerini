@@ -52,7 +52,8 @@ return {
                 text = {
                     "At the end of the round",
                     "add a random card {C:attention}value{}",
-                    "to this joker's {C:attention}sell value{}"
+                    "to this joker's {C:attention}sell value{}",
+                    "and {C:red}destroy{} the card"
                 },
             },
         }

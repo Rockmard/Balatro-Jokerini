@@ -217,7 +217,7 @@ SMODS.Joker{
 		if context.cardarea == G.jokers and context.before and not context.blueprint then
 			local fourty_twos = {}
 			for k, v in ipairs(context.scoring_hand) do
-				if (v:get_id() == 4 or v:get_id() == 2) and not v.debuff then 
+				if (v:get_id() == 4 or v:get_id() == 2) and not v.debuff and v.ability.effect ~= "Steel Card" then 
 					fourty_twos[#fourty_twos+1] = v
 					v:set_ability(G.P_CENTERS.m_steel, nil, true)
 					G.E_MANAGER:add_event(Event({
@@ -318,7 +318,7 @@ SMODS.Joker{
 	discovered = true,                                    
 	effect="Sacrifice cards",			 		 
 	soul_pos=nil,                                        
-	atlas = 'sacrificial_totem',                             
+	atlas = 'sacrificial_totem',                       
 
 	calculate = function(self, card, context)
 		if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
@@ -327,6 +327,13 @@ SMODS.Joker{
 				local randonum = math.random(1, #G.hand.cards)
 				local card_to_kill = G.hand.cards[randonum]
 				local value = card_to_kill:get_id()
+
+				if value == 11 or value == 12 or value == 13 then
+					value = 10
+				end
+				if value == 14 then
+					value = 11
+				end
 
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
