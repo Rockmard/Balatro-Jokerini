@@ -42,7 +42,7 @@ return {
             j_sj_trade = {
                 name = "Trade",
                 text = {
-                    "At the end of the round",
+                    "At end of round",
                     "your {C:attention}leftmost{} card is {C:green}copied{}",
                     "and your {C:attention}rightmost{} card is {C:red}destroyed{}"
                 },
@@ -50,10 +50,20 @@ return {
             j_sj_sacrificial_totem = {
                 name = "Sacrificial Totem",
                 text = {
-                    "At the end of the round",
+                    "At end of round",
                     "add a random card {C:attention}value{}",
                     "to this joker's {C:attention}sell value{}",
                     "and {C:red}destroy{} the card"
+                },
+            },
+            j_sj_piggy_bank = {
+                name = "Piggy Bank",
+                text = {
+                    "At end of round",
+                    "doubles this joker",
+                    "{C:attention}sell value{} and",
+                    "{C:green}chances{} to explode",
+                    "{C:green}#1# in #2#{} chance to explode"
                 },
             },
         }

@@ -49,6 +49,13 @@ SMODS.Atlas({
 	py = 95
 })
 
+SMODS.Atlas({
+	key = "piggy_bank",
+	path = "j_piggy_bank.png",
+	px = 71,
+	py = 95
+})
+
 -- JOKERS
 
 SMODS.Joker{
@@ -355,6 +362,66 @@ SMODS.Joker{
 					message = "Sacrifice !",
 					colour = G.C.MONEY,
 					card = card,
+				}
+			end
+		end
+	end,
+}
+
+SMODS.Joker{
+	key = "piggy_bank",                                  
+	config = {extra = { odds = 8 } },  						 	 
+	pos = { x = 0, y = 0 },                             
+	rarity = 2,                                          
+	cost = 6,                                            
+	blueprint_compat=false,                               
+	eternal_compat=false,                                 
+	unlocked = true,                                     
+	discovered = true,                                    
+	effect="Double sell value",			 		 
+	soul_pos=nil,                                        
+	atlas = 'piggy_bank',
+	
+	loc_vars = function(self, info_queue, card)
+		return { vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+	end,
+
+	calculate = function(self, card, context)
+		if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+			if pseudorandom('piggy_bank'..G.GAME.round_resets.ante) < G.GAME.probabilities.normal / card.ability.extra.odds then
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound('tarot1')
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
+							func = function()
+									G.jokers:remove_card(card)
+									card:remove()
+								return true; end})) 
+						return true
+					end
+				}))
+				return {
+					colour = G.C.RED,
+					message = "Explode !",
+					card = card,
+				}
+			else
+				card.ability.extra_value = card.ability.extra_value + card.sell_cost
+				card:set_cost()
+				card.ability.extra.odds = card.ability.extra.odds / 2
+				return {
+					message = 'Sell value doubled !',
+					colour = G.C.MONEY,
+					card = card,
+					extra = {
+						message = 'Chances of explosion doubled !',
+						colour = G.C.GREEN,
+						card = card,
+					}
 				}
 			end
 		end
