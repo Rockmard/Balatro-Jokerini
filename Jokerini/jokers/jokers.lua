@@ -413,15 +413,16 @@ SMODS.Joker{
 				card.ability.extra_value = card.ability.extra_value + card.sell_cost
 				card:set_cost()
 				card.ability.extra.odds = card.ability.extra.odds / 2
-				return {
+
+				card_eval_status_text(card, 'extra', nil, nil, nil, {
 					message = 'Sell value doubled !',
 					colour = G.C.MONEY,
+				})
+				delay(0.5)
+				return {
+					message = 'Chances of explosion doubled !',
+					colour = G.C.GREEN,
 					card = card,
-					extra = {
-						message = 'Chances of explosion doubled !',
-						colour = G.C.GREEN,
-						card = card,
-					}
 				}
 			end
 		end
